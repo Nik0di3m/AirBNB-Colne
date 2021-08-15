@@ -4,9 +4,11 @@ import { useRouter } from "next/dist/client/router"
 import { format } from "date-fns"
 import { fetchAPI } from "../components/Utils/api"
 import InfoCard from "../components/InfoCards/InfoCard"
+import Map from "../components/Map/Map"
 
 
 const Search = ({ searchRes }) => {
+
     const router = useRouter()
     const count = searchRes.length
     const { location, startDate, endDate, noOfGuest } = router.query
@@ -41,6 +43,9 @@ const Search = ({ searchRes }) => {
                         ))}
                     </div>
 
+                </section>
+                <section className="hidden xl:inline-flex xl:min-w-[600px] pl-4 mb-5">
+                    <Map searchRes={searchRes}/>
                 </section>
             </main>
             <Footer />

@@ -16,6 +16,7 @@ import fetchAPI from "../Utils/api"
 const Header = ({ placeholder }) => {
 
     const [input, setInput] = useState("")
+    const [inputUp, setInputUp] = useState("")
     const [startDate, setStartDate] = useState(new Date())
     const [endDate, setEndDate] = useState(new Date())
     const [guestNumber, setGuestNamber] = useState(1)
@@ -27,15 +28,19 @@ const Header = ({ placeholder }) => {
     }
 
     const search = () => {
-        router.push({
-            pathname: '/search',
-            query: {
-                location: input,
-                startDate: startDate.toISOString(),
-                endDate: endDate.toISOString(),
-                noOfGuest: guestNumber
-            }
-        })
+        if(input != null){
+            const upperInputstr = input.charAt(0).toUpperCase() + input.slice(1)
+            router.push({
+                pathname: '/search',
+                query: {
+                    location: upperInputstr,
+                    startDate: startDate.toISOString(),
+                    endDate: endDate.toISOString(),
+                    noOfGuest: guestNumber
+                }
+            })
+        }
+
         setInput()
     }
 
@@ -58,6 +63,7 @@ const Header = ({ placeholder }) => {
                     layout="fill"
                     objectFit="contain"
                     objectPosition="left"
+                    alt="LogoAirBNB"
                 />
             </div>
             {/* Middle nav */}

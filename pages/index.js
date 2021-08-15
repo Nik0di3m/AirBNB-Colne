@@ -11,7 +11,7 @@ import { fetchAPI } from "../components/Utils/api"
 
 
 const Home = ({ data, data2, data3 }) => {
-  console.log(data2)
+
   return (
     <div>
       <Head>
