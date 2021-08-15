@@ -92,6 +92,8 @@ const Header = ({ placeholder }) => {
                         minDate={new Date()}
                         rangeColors={["#FD5B61"]}
                         onChange={handleSelect}
+                        showPreview={false}
+                        renderStaticRangeLabel={false}
                     />
                     <div className="flex items-center justify-between mb-8 border-b-2">
                         <h2 className="font-semibold text-2xl flex-grow">Liczba Gości</h2>
